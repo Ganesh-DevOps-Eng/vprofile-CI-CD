@@ -9,7 +9,7 @@ resource "aws_codebuild_project" "vprofile_build" {
     type            = "CODECOMMIT"
     location        = "https://git-codecommit.ap-south-1.amazonaws.com/v1/repos/Vprofile-code-repo"
     git_clone_depth = 1
-    buildspec       = file("~/.ssh/buildspec.yml")
+    buildspec       = file("./buildspec.yml")
   }
 
   environment {

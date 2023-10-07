@@ -11,3 +11,11 @@ data "aws_caller_identity" "current" {}
 output "account_id" {
   value = data.aws_caller_identity.current.account_id
 }
+
+
+data "aws_key_pair" "my_key_pair" {
+  filter {
+    name = "tag:Name"
+    values = ["my_key_pair"]
+  }
+}

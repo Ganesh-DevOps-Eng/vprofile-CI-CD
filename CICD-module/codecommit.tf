@@ -12,7 +12,7 @@ resource "aws_iam_user" "vprofile" {
 resource "aws_iam_user_ssh_key" "vprofile_IAMssh" {
   username    = aws_iam_user.vprofile.name
   encoding    = "SSH"
-  public_key  = file("~/.ssh/vprofile.pub")
+  public_key  = data.aws_key_pair.my_key_pair.public_key
 }
 # Attach CodeCommit policy to the IAM User
 resource "aws_iam_user_policy_attachment" "vprofile-code-admin" {

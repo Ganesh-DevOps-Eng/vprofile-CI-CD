@@ -35,4 +35,7 @@ resource "local_file" "bastion_key" {
 resource "aws_key_pair" "bastion_pair" {
   key_name   = "${var.project_name}_bastion_key_pair"
   public_key = tls_private_key.my_bastion_key.public_key_openssh
+    tags = {
+    Name = "bastion_pair"
+  }
 }
